@@ -149,7 +149,7 @@ def caseHistoryCompile(caseTypes):
         return table
 
 def addHeader(name):
-        return "<noincudle>\n== "+name+" ==\n</noinclude>"
+        return "<noinclude>\n== "+name+" ==\n</noinclude>"
 
 def makeTable(content,first):
         if first:
@@ -158,7 +158,7 @@ def makeTable(content,first):
 !Investigation!!Status!!Filer!!Date filed!!Last user to<br /> edit case!!timestamp!!Last clerk/CU<br /> to edit case
 |-
 """
-        if not first:tabletop="""<noincudle>
+        if not first:tabletop="""<noinclude>
 {|class="wikitable sortable" width="100%"
 !Investigation!!Status!!Filer!!Date filed!!Last user to<br /> edit case!!timestamp!!Last clerk/CU<br /> to edit case
 |-</noinclude>
