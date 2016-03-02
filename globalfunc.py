@@ -168,31 +168,31 @@ def makeTable(content,first):
 def caseProcessor():
     print "CU results table"
     categories=["checked"]
-    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories,True))
+    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
     print "!!!DONE!!!"
     print "CU endorsed table"
     categories=["endorsed","relist"]
-    cueftable = addHeader("CU Endorsed Cases")+makeTable(caseHistoryCompile(categories,False))
+    cueftable = addHeader("CU Endorsed Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "CU review table"
     categories=["curequest"]
-    curftable = addHeader("CU Review Cases")+makeTable(caseHistoryCompile(categories,False))
+    curftable = addHeader("CU Review Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "CU decline table"
     categories=["declined","cudeclined"]
-    cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories,False))
+    cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "Open table"
     categories=["open"]
-    oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories,False))
+    oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "Wait table"
     categories=["inprogress","ADMIN","moreinfo","hold","cuhold"]
-    wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories,False))
+    wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "Archive table"
     categories=["close"]
-    arcftable = addHeader("To Archive Cases")+makeTable(caseHistoryCompile(categories,False))
+    arcftable = addHeader("To Archive Cases")+makeTable(caseHistoryCompile(categories),False)
     print "!!!DONE!!!"
     print "Processing master table..."
     
