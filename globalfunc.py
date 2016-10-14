@@ -166,42 +166,42 @@ def makeTable(content,first):
         tablebottom="|}"
         return tabletop + content + tablebottom
 def caseProcessor():
-    print "CU results table"
+    #print "CU results table"
     categories=["checked"]
     cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
-    print "!!!DONE!!!"
-    print "CU endorsed table"
+    #print "!!!DONE!!!"
+    #print "CU endorsed table"
     categories=["endorsed","relist"]
     cueftable = addHeader("CU Endorsed Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "CU review table"
+    #print "!!!DONE!!!"
+    #print "CU review table"
     categories=["curequest"]
     curftable = addHeader("CU Review Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "CU decline table"
+    #print "!!!DONE!!!"
+    #print "CU decline table"
     categories=["declined","cudeclined"]
     cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "Open table"
+    #print "!!!DONE!!!"
+    #print "Open table"
     categories=["open"]
     oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "Wait table"
+    #print "!!!DONE!!!"
+    #print "Wait table"
     categories=["inprogress","ADMIN","moreinfo","hold","cuhold"]
     wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "Archive table"
+    #print "!!!DONE!!!"
+    #print "Archive table"
     categories=["close"]
     arcftable = addHeader("To Archive Cases")+makeTable(caseHistoryCompile(categories),False)
-    print "!!!DONE!!!"
-    print "Processing master table..."
+    #print "!!!DONE!!!"
+    #print "Processing master table..."
     
-    final = cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
-    print "!!!DONE!!!"
-    print "----POSTING----"
+    final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
+    #print "!!!DONE!!!"
+    #print "----POSTING----"
     site = pywikibot.getSite()
     pagename = "User:DeltaQuad/SPI case list"
     page = pywikibot.Page(site, pagename)
     page.put(final, comment="Updating SPI caselist")
-    print "!!!DONE!!!"
+    #print "!!!DONE!!!"
 caseProcessor()
