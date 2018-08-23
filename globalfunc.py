@@ -168,8 +168,11 @@ def caseHistoryCompile(caseTypes):
                             print 'Main SPI page ignored'
         return table
 
-def addHeader(name):
-        return "\n== "+name+" ==\n</noinclude>"
+def addHeader(name,first=False):
+        if !first:
+                return "\n== "+name+" ==\n</noinclude>"
+        else:
+                return "<noinclude>\n== "+name+" ==\n</noinclude>"
 
 def makeTable(content,first):
         if first:
@@ -188,7 +191,7 @@ def makeTable(content,first):
 def caseProcessor():
     #print "CU results table"
     categories=["checked"]
-    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
+    cursftable = addHeader("CU Result Cases",True)+makeTable(caseHistoryCompile(categories),True)
     #print "!!!DONE!!!"
     #print "CU endorsed table"
     categories=["endorsed","relist"]
