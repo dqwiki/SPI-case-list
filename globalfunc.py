@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """
 (C) 2016 DeltaQuad (enwp.org/User:DeltaQuad)
 
@@ -16,8 +17,7 @@ GNU AFFERO GENERAL PUBLIC LICENSE for more details.
 You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
 along with DeltaQuadBot. If not, see <https://www.gnu.org/licenses/agpl.txt>.
 """
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
+
 from datetime import datetime
 import sys
 import platform
@@ -66,19 +66,19 @@ def formatArray(database):
 
 def getAllCases(ctype):
     if ctype=="inprogress":return getCurrentCases('SPI cases currently being checked')
-    if ctype=="endorsed":return getCurrentCases('SPI cases awaiting a CheckUser‎')
+    if ctype=="endorsed":return getCurrentCases('SPI cases awaiting a CheckUserâ€Ž')
     if ctype=="relist":return getCurrentCases('SPI cases relisted for a checkuser')
-    if ctype=="curequest":return getCurrentCases('SPI cases requesting a checkuser‎')
+    if ctype=="curequest":return getCurrentCases('SPI cases requesting a checkuserâ€Ž')
     if ctype=="checked":return getCurrentCases('SPI cases CU complete')
     if ctype=="ADMIN":return getCurrentCases('SPI cases needing an Administrator')
-    if ctype=="declined":return getCurrentCases('SPI cases declined for checkuser by clerk‎')
-    if ctype=="cudeclined":return getCurrentCases('SPI cases declined for checkuser by CU‎')
-    if ctype=="open":return getCurrentCases('SPI cases awaiting review‎')
-    if ctype=="moreinfo":return getCurrentCases('SPI cases requesting more information‎')
-    if ctype=="hold":return getCurrentCases('SPI cases on hold by clerk‎')
-    if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuser‎')
-    if ctype=="close":return getCurrentCases('SPI cases awaiting archive‎')
-    if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerk‎')
+    if ctype=="declined":return getCurrentCases('SPI cases declined for checkuser by clerkâ€Ž')
+    if ctype=="cudeclined":return getCurrentCases('SPI cases declined for checkuser by CUâ€Ž')
+    if ctype=="open":return getCurrentCases('SPI cases awaiting reviewâ€Ž')
+    if ctype=="moreinfo":return getCurrentCases('SPI cases requesting more informationâ€Ž')
+    if ctype=="hold":return getCurrentCases('SPI cases on hold by clerkâ€Ž')
+    if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuserâ€Ž')
+    if ctype=="close":return getCurrentCases('SPI cases awaiting archiveâ€Ž')
+    if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerkâ€Ž')
 
 def getHistory(title):
     site= pywikibot.getSite()
