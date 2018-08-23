@@ -85,7 +85,7 @@ def getHistory(title):
     params = {'action':'query',
               'prop':'revisions',
               'titles':title,
-              'rvslots':'main',
+              'rvslots':'*',
               'rvlimit':'500',
               'rvprop':'timestamp|user|comment|size',
               'format':'json',
