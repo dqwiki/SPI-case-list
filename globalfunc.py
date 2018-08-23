@@ -168,7 +168,7 @@ def caseHistoryCompile(caseTypes):
         return table
 
 def addHeader(name):
-        return "<noinclude>\n== "+name+" ==\n</noinclude>"
+        return "\n== "+name+" ==\n</noinclude>"
 
 def makeTable(content,first):
         if first:
@@ -182,7 +182,7 @@ def makeTable(content,first):
 !Investigation!!Status!!Filer!!Date filed!!Last user to<br /> edit case!!timestamp!!Last clerk/CU<br /> to edit case
 </noinclude>|-
 """
-        tablebottom="|}"
+        tablebottom="<noinclude>|}"
         return tabletop + content + tablebottom
 def caseProcessor():
     #print "CU results table"
