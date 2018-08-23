@@ -145,6 +145,7 @@ def caseHistoryCompile(caseTypes):
         table=""
         for entry in caseTypes:
                 caselist=getAllCases(entry)
+                print caselist
                 if caselist == None:
                     continue
                 for case in caselist:
@@ -187,8 +188,8 @@ def makeTable(content,first):
         return tabletop + content + tablebottom
 def caseProcessor():
     #print "CU results table"
-    #categories=["checked"]
-    #cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
+    categories=["checked"]
+    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
     #print "!!!DONE!!!"
     #print "CU endorsed table"
     categories=["endorsed","relist"]
@@ -216,7 +217,7 @@ def caseProcessor():
     #print "!!!DONE!!!"
     #print "Processing master table..."
     
-    final = "__NOEDITSECTION__\n" + cueftable + curftable + cudftable + oftable + wftable + arcftable
+    final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
     #print "!!!DONE!!!"
     #print "----POSTING----"
     site = pywikibot.getSite()
