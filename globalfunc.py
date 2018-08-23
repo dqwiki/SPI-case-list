@@ -216,7 +216,7 @@ def caseProcessor():
     #print "!!!DONE!!!"
     #print "Processing master table..."
     
-    final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
+    final = "__NOEDITSECTION__\n" + cueftable + curftable + cudftable + oftable + wftable + arcftable
     #print "!!!DONE!!!"
     #print "----POSTING----"
     site = pywikibot.getSite()
