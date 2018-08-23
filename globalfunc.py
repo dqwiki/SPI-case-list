@@ -66,19 +66,19 @@ def formatArray(database):
 
 def getAllCases(ctype):
     if ctype=="inprogress":return getCurrentCases('SPI cases currently being checked')
-    if ctype=="endorsed":return getCurrentCases('SPI cases awaiting a CheckUserâ€Ž')
+    if ctype=="endorsed":return getCurrentCases('SPI cases awaiting a CheckUser')
     if ctype=="relist":return getCurrentCases('SPI cases relisted for a Checkuser')
-    if ctype=="curequest":return getCurrentCases('SPI cases requesting a checkuserâ€Ž')
+    if ctype=="curequest":return getCurrentCases('SPI cases requesting a checkuser')
     if ctype=="checked":return getCurrentCases('SPI cases CU complete')
     if ctype=="ADMIN":return getCurrentCases('SPI cases needing an Administrator')
-    if ctype=="declined":return getCurrentCases('SPI cases declined for checkuser by clerkâ€Ž')
-    if ctype=="cudeclined":return getCurrentCases('SPI cases declined for checkuser by CUâ€Ž')
-    if ctype=="open":return getCurrentCases('SPI cases awaiting reviewâ€Ž')
-    if ctype=="moreinfo":return getCurrentCases('SPI cases requesting more informationâ€Ž')
-    if ctype=="hold":return getCurrentCases('SPI cases on hold by clerkâ€Ž')
-    if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuserâ€Ž')
-    if ctype=="close":return getCurrentCases('SPI cases awaiting archiveâ€Ž')
-    if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerkâ€Ž')
+    if ctype=="declined":return getCurrentCases('SPI cases declined for checkuser by clerk')
+    if ctype=="cudeclined":return getCurrentCases('SPI cases declined for checkuser by CU')
+    if ctype=="open":return getCurrentCases('SPI cases awaiting review')
+    if ctype=="moreinfo":return getCurrentCases('SPI cases requesting more information')
+    if ctype=="hold":return getCurrentCases('SPI cases on hold by clerk')
+    if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuser')
+    if ctype=="close":return getCurrentCases('SPI cases awaiting archive')
+    if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerk')
 
 def getHistory(title):
     site= pywikibot.getSite()
@@ -145,7 +145,6 @@ def caseHistoryCompile(caseTypes):
         table=""
         for entry in caseTypes:
                 caselist=getAllCases(entry)
-                print caselist
                 if caselist == None:
                     continue
                 for case in caselist:
