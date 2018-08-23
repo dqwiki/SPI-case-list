@@ -78,6 +78,7 @@ def getAllCases(ctype):
     if ctype=="hold":return getCurrentCases('SPI cases on hold by clerk‎')
     if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuser‎')
     if ctype=="close":return getCurrentCases('SPI cases awaiting archive‎')
+    if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerk‎')
 
 def getHistory(title):
     site= pywikibot.getSite()
@@ -206,7 +207,7 @@ def caseProcessor():
     oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories),False)
     #print "!!!DONE!!!"
     #print "Wait table"
-    categories=["inprogress","ADMIN","moreinfo","hold","cuhold"]
+    categories=["inprogress","ADMIN","moreinfo","hold","cuhold","clerk"]
     wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories),False)
     #print "!!!DONE!!!"
     #print "Archive table"
