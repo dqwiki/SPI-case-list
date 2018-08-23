@@ -16,7 +16,7 @@ GNU AFFERO GENERAL PUBLIC LICENSE for more details.
 You should have received a copy of the GNU AFFERO GENERAL PUBLIC LICENSE
 along with DeltaQuadBot. If not, see <https://www.gnu.org/licenses/agpl.txt>.
 """
-
+#!/usr/bin/python
 # -*- coding: utf-8 -*-
 from datetime import datetime
 import sys
