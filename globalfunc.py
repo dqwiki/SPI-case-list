@@ -187,8 +187,8 @@ def makeTable(content,first):
         return tabletop + content + tablebottom
 def caseProcessor():
     #print "CU results table"
-    categories=["checked"]
-    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
+    #categories=["checked"]
+    #cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
     #print "!!!DONE!!!"
     #print "CU endorsed table"
     categories=["endorsed","relist"]
