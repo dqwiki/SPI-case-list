@@ -67,7 +67,7 @@ def formatArray(database):
 def getAllCases(ctype):
     if ctype=="inprogress":return getCurrentCases('SPI cases currently being checked')
     if ctype=="endorsed":return getCurrentCases('SPI cases awaiting a CheckUserâ€Ž')
-    if ctype=="relist":return getCurrentCases('SPI cases relisted for a checkuser')
+    if ctype=="relist":return getCurrentCases('SPI cases relisted for a Checkuser')
     if ctype=="curequest":return getCurrentCases('SPI cases requesting a checkuserâ€Ž')
     if ctype=="checked":return getCurrentCases('SPI cases CU complete')
     if ctype=="ADMIN":return getCurrentCases('SPI cases needing an Administrator')
