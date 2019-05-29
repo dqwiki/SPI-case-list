@@ -26,21 +26,18 @@ import json
 import re
 
 import localconfig
-if platform.system() == "Windows":
-        sys.path.append(localconfig.winpath)
-else:sys.path.append(localconfig.linuxpath)
-import pywikibot
-from pywikibot.data import api
+import mwclient
+import login
 
-useWiki= pywikibot.Site('en','wikipedia')
+masterwiki =  mwclient.Site('en.wikipedia.org')
+masterwiki.login(login.username,login.password)
+
 
 def callAPI(params):
-    req = api.Request(useWiki, **params)
-    return req.submit()
+    return masterwiki.api(**params)
 
 def getCurrentCases(category):
     category = "Category:" + category
-    site= pywikibot.getSite()
     params = {'action': 'query',
         	'list': 'categorymembers',
         	'cmtitle': category,
@@ -81,7 +78,6 @@ def getAllCases(ctype):
     if ctype=="clerk":return getCurrentCases('SPI cases needing a Clerk')
 
 def getHistory(title):
-    site= pywikibot.getSite()
     params = {'action':'query',
               'prop':'revisions',
               'titles':title,
@@ -115,14 +111,9 @@ def getLastClerk(title):
     revisions = getHistory(title)
     i=0
     while True:
-        #print '-----------------------------------------'
         try:last = revisions[i]
         except:
-                #print "!!!!NO!!!!"
                 return "None"
-        #except:return ""
-        #print "Last: "
-        #print last
         site = pywikibot.getSite()
         pagename = "User:DeltaQuad/Clerks list"
         page = pywikibot.Page(site, pagename)
@@ -219,9 +210,7 @@ def caseProcessor():
     final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
     #print "!!!DONE!!!"
     #print "----POSTING----"
-    site = pywikibot.getSite()
-    pagename = "User:DeltaQuad/SPI case list"
-    page = pywikibot.Page(site, pagename)
-    page.put(final, comment="Updating SPI caselist")
+    page = masterwiki.pages["User:DeltaQuad/SPI case list"]
+    page.save(final, "Updating SPI caselist")
     #print "!!!DONE!!!"
 caseProcessor()
