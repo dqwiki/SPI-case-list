@@ -114,10 +114,8 @@ def getLastClerk(title):
         try:last = revisions[i]
         except:
                 return "None"
-        site = pywikibot.getSite()
-        pagename = "User:DeltaQuad/Clerks list"
-        page = pywikibot.Page(site, pagename)
-        clerks = page.get()
+        page = masterwiki.pages["User:DeltaQuad/Clerks list"]
+        clerks = page.text()
         try:
                 if "archive" in last["comment"].lower() or "archiving" in last["comment"].lower():
                     return "None"
