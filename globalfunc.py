@@ -101,13 +101,13 @@ def getFiler(revisions):
                         null=1 #nullifier due to "commenthidden"
                 i+=1
         last = revisions.pop()
-        return [last["user"],last["timestamp"]]
+        return [last["user"],last["timestamp"].split("T")[0]]
                 
 def getLastEdit(title):
     history=getHistory(title)
     last = history[0]
     timestamp = last["timestamp"]
-    time = timestamp.split("T")[0] + " " + timestamp.split("T")[1].split(":")[0:1]+" UTC"
+    time = timestamp.split("T")[0] + " " + "h".join(timestamp.split("T")[1].split(":")[0:2])+" UTC"
     return [last["user"],time]
 def getLastClerk(title):
     revisions = getHistory(title)
@@ -140,12 +140,10 @@ def caseHistoryCompile(caseTypes):
                     continue
                 for case in caselist:
                     history=getHistory(case)
-                    historyDup=history
                     filer=getFiler(history)
                     lastEdit=getLastEdit(case)
                     lastClerk=getLastClerk(case)
                     if lastClerk=="None":lastClerk=""
-
                     dateFiled=filer[1]
                     filer = filer[0]
                     timestamp = lastEdit[1]
