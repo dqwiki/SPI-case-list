@@ -96,18 +96,18 @@ def getFiler(revisions):
         for revision in revisions:
                 try:
                         if "archiv" in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
-                                return revisions[i-1]["user"],revisions[i-1]["timestamp"].split("T")[0]
+                                return revisions[i-1]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
                 except:
                         null=1 #nullifier due to "commenthidden"
                 i+=1
         last = revisions.pop()
-        return [last["user"],last["timestamp"].split("T")[0]]
+        return [last["user"],datetime.strptime(last["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')]
                 
 def getLastEdit(title):
     history=getHistory(title)
     last = history[0]
     timestamp = last["timestamp"]
-    time = timestamp.split("T")[0] + " " + "h".join(timestamp.split("T")[1].split(":")[0:2])+" UTC"
+    time = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d %Hh%m UTC')
     return [last["user"],time]
 def getLastClerk(title):
     revisions = getHistory(title)
@@ -148,10 +148,8 @@ def caseHistoryCompile(caseTypes):
                     filer = filer[0]
                     timestamp = lastEdit[1]
                     lastEdit = lastEdit[0]
-                    if len(filer)>30:filer="[[User:"+filer+"|An IPv6 address]]"
-                    else:filer="[[User:"+filer+"|"+filer+"]]"
-                    if len(lastEdit)>30:lastEdit="[[User:"+filer+"|An IPv6 address]]"
-                    else:lastEdit="[[User:"+lastEdit+"|"+lastEdit+"]]"
+                    filer="[[User:"+filer+"|"+filer+"]]"
+                    lastEdit="[[User:"+lastEdit+"|"+lastEdit+"]]"
                     try:table+=formatTableRow(case.split("/")[1],entry,filer,dateFiled,lastEdit,timestamp,lastClerk)+"\n"
                     except:
                             print 'Main SPI page ignored'
@@ -164,12 +162,12 @@ def makeTable(content,first):
         if first:
                 tabletop="""
 {|class="wikitable sortable" width="100%"
-!Investigation!!Status!!Filer!!Date filed!!Last user to<br /> edit case!!timestamp!!Last clerk/CU<br /> to edit case
+!Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
 |-
 """
         if not first:tabletop="""<noinclude>
 {|class="wikitable sortable" width="100%"
-!Investigation!!Status!!Filer!!Date filed!!Last user to<br /> edit case!!timestamp!!Last clerk/CU<br /> to edit case
+!Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
 </noinclude>|-
 """
         tablebottom="<noinclude>|}"
