@@ -96,7 +96,7 @@ def getFiler(revisions):
         for revision in revisions:
                 try:
                         if "archiv" in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
-                                return revisions[i-1]["user"],revisions[i-1]["timestamp"]
+                                return revisions[i-1]["user"],revisions[i-1]["timestamp"].split("T")[0]
                 except:
                         null=1 #nullifier due to "commenthidden"
                 i+=1
@@ -106,7 +106,9 @@ def getFiler(revisions):
 def getLastEdit(title):
     history=getHistory(title)
     last = history[0]
-    return [last["user"],last["timestamp"]]
+    timestamp = last["timestamp"]
+    time = timestamp.split("T")[0] + " " + timestamp.split("T")[1].split(":")[0:1]+" UTC"
+    return [last["user"],time]
 def getLastClerk(title):
     revisions = getHistory(title)
     i=0
