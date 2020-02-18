@@ -107,7 +107,7 @@ def getLastEdit(title):
     history=getHistory(title)
     last = history[0]
     timestamp = last["timestamp"]
-    time = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d %Hh%m UTC')
+    time = datetime.strptime(timestamp, '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d %Hh%M UTC')
     time = time.replace(" ".join(time.split(" ")[0:2]), "{{Date table sorting|"+" ".join(time.split(" ")[0:2])+"}}")
     return [last["user"],time]
 def getLastClerk(title):
