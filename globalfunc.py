@@ -32,6 +32,8 @@ import login
 masterwiki =  mwclient.Site('en.wikipedia.org')
 masterwiki.login(login.username,login.password)
 
+page = masterwiki.pages["User:DeltaQuad/Clerks list"]
+clerks = page.text()
 
 def callAPI(params):
     return masterwiki.api(**params)
@@ -94,12 +96,13 @@ def getHistory(title):
 def getFiler(revisions):
         i=0
         for revision in revisions:
-                try:
-                        if "archiv" in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
-                                return revisions[i-1]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
-                except:
-                        null=1 #nullifier due to "commenthidden"
-                i+=1
+            print revision
+            try:
+                if "Archiving case to ".lower() in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
+                    return revisions[i-1]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
+            except:
+                null=1 #nullifier due to "commenthidden"
+            i+=1
         last = revisions.pop()
         return [last["user"],datetime.strptime(last["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')]
                 
@@ -117,8 +120,6 @@ def getLastClerk(title):
         try:last = revisions[i]
         except:
                 return "None"
-        page = masterwiki.pages["User:DeltaQuad/Clerks list"]
-        clerks = page.text()
         try:
                 if "archive" in last["comment"].lower() or "archiving" in last["comment"].lower():
                     return "None"
