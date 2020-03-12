@@ -96,7 +96,6 @@ def getHistory(title):
 def getFiler(revisions):
         i=0
         for revision in revisions:
-            print revision
             try:
                 if "Archiving case to ".lower() in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
                     return revisions[i-1]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
