@@ -32,7 +32,7 @@ import login
 masterwiki =  mwclient.Site('en.wikipedia.org')
 masterwiki.login(login.username,login.password)
 
-page = masterwiki.pages["User:DeltaQuad/Clerks list"]
+page = masterwiki.pages["User:AmandaNP/Clerks list"]
 clerks = page.text()
 
 def callAPI(params):
@@ -207,7 +207,7 @@ def caseProcessor():
     final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
     #print "!!!DONE!!!"
     #print "----POSTING----"
-    page = masterwiki.pages["User:DeltaQuad/SPI case list"]
+    page = masterwiki.pages["User:AmandaNP/SPI case list"]
     page.save(final, "Updating SPI caselist")
     #print "!!!DONE!!!"
 caseProcessor()
