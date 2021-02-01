@@ -159,14 +159,8 @@ def caseHistoryCompile(caseTypes):
 def addHeader(name):
         return "\n== "+name+" ==\n"
 
-def makeTable(content,first):
-        if first:
-                tabletop="""
-{|class="wikitable sortable" width="100%"
-!Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
-|-
-"""
-        if not first:tabletop="""
+def makeTable(content):
+        tabletop="""
 {|class="wikitable sortable" width="100%"
 !Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
 </noinclude>|-
@@ -176,35 +170,35 @@ def makeTable(content,first):
 def caseProcessor():
     #print "CU results table"
     categories=["checked"]
-    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories),True)
+    cursftable = addHeader("CU Result Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "CU endorsed table"
     categories=["endorsed","relist"]
-    cueftable = addHeader("CU Endorsed Cases")+makeTable(caseHistoryCompile(categories),False)
+    cueftable = addHeader("CU Endorsed Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "CU review table"
     categories=["curequest"]
-    curftable = addHeader("CU Review Cases")+makeTable(caseHistoryCompile(categories),False)
+    curftable = addHeader("CU Review Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "CU decline table"
     categories=["declined","cudeclined"]
-    cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories),False)
+    cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Open table"
     categories=["open"]
-    oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories),False)
+    oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Wait table"
     categories=["inprogress","ADMIN","moreinfo","hold","cuhold","clerk"]
-    wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories),False)
+    wftable = addHeader("Waiting Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Archive table"
     categories=["close"]
-    arcftable = addHeader("To Archive Cases")+makeTable(caseHistoryCompile(categories),False)
+    arcftable = addHeader("To Archive Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Processing master table..."
     
-    final = "__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable
+    final = "<noinclude>__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable + "</noinclude>
     #print "!!!DONE!!!"
     #print "----POSTING----"
     page = masterwiki.pages["User:AmandaNP/SPI case list"]
