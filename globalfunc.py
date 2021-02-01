@@ -157,7 +157,7 @@ def caseHistoryCompile(caseTypes):
         return table
 
 def addHeader(name):
-        return "<noinclude>\n== "+name+" ==\n</noinclude>"
+        return "\n== "+name+" ==\n"
 
 def makeTable(content,first):
         if first:
