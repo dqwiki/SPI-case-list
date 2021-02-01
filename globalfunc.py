@@ -166,7 +166,7 @@ def makeTable(content,first):
 !Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
 |-
 """
-        if not first:tabletop="""<noinclude>
+        if not first:tabletop="""
 {|class="wikitable sortable" width="100%"
 !Investigation!!Status!!Filer!!Date filed!!Last user edit!!timestamp!!Last clerk/CU edit
 </noinclude>|-
