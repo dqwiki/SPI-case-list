@@ -198,7 +198,7 @@ def caseProcessor():
     #print "!!!DONE!!!"
     #print "Processing master table..."
     
-    final = "<noinclude>__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable + "</noinclude>
+    final = "<noinclude>__NOEDITSECTION__\n"+cursftable + cueftable + curftable + cudftable + oftable + wftable + arcftable + "</noinclude>"
     #print "!!!DONE!!!"
     #print "----POSTING----"
     page = masterwiki.pages["User:AmandaNP/SPI case list"]
