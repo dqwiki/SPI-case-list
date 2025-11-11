@@ -73,6 +73,7 @@ def getAllCases(ctype):
     if ctype=="declined":return getCurrentCases('SPI cases declined for checkuser by clerk')
     if ctype=="cudeclined":return getCurrentCases('SPI cases declined for checkuser by CU')
     if ctype=="open":return getCurrentCases('SPI cases awaiting review')
+    if ctype=="new":return getCurrentCases('New SPI cases')
     if ctype=="moreinfo":return getCurrentCases('SPI cases requesting more information')
     if ctype=="hold":return getCurrentCases('SPI cases on hold by clerk')
     if ctype=="cuhold":return getCurrentCases('SPI cases on hold by checkuser')
@@ -185,7 +186,7 @@ def caseProcessor():
     cudftable = addHeader("CU Declined Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Open table"
-    categories=["open"]
+    categories=["open","new"]
     oftable = addHeader("Open Cases")+makeTable(caseHistoryCompile(categories))
     #print "!!!DONE!!!"
     #print "Wait table"
