@@ -54,7 +54,7 @@ def getCurrentCases(category):
     return reg
 
 def getCurrentCasesBeta():
-    print "Null"
+    print("Null")
 
 def formatArray(database):
     i = 0
@@ -154,7 +154,7 @@ def caseHistoryCompile(caseTypes):
                     lastEdit="[[User:"+lastEdit+"|"+lastEdit+"]]"
                     try:table+=formatTableRow(case.split("/")[1],entry,filer,dateFiled,lastEdit,timestamp,lastClerk)+"\n"
                     except:
-                            print 'Main SPI page ignored'
+                            print('Main SPI page ignored')
         return table
 
 def addHeader(name):
