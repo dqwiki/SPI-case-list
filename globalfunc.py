@@ -98,7 +98,9 @@ def getFiler(revisions):
         i=0
         for revision in revisions:
             try:
-                if "Archiving case ".lower() in revision["comment"].lower():# or "archiving" in revision["comment"].lower():
+                if "Adding new report".lower() in revision["comment"].lower():
+                    return revisions[i]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
+                elif "Archiving case ".lower() in revision["comment"].lower():
                     return revisions[i-1]["user"],datetime.strptime(revisions[i-1]["timestamp"], '%Y-%m-%dT%H:%M:%SZ').strftime('%b %d')
             except:
                 null=1 #nullifier due to "commenthidden"
